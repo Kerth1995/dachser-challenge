@@ -30,12 +30,16 @@ public class ShipmentBusinessLogicServiceImpl implements IShipmentBusinessLogicS
     }
 
     @Override
-    public ShipmentResponseDomain saveProfitOrLoss(ShipmentRequestDomain shipmentRequestDomain) {
-        Shipment shipment = iShipmentMapperDomain.mapShipmentRequestDomainToShipment(shipmentRequestDomain);
-        shipment.setCost(sumTotalCost(shipmentRequestDomain.getCosts()));
-        Shipment resultData = shipmentService.save(shipment);
-        resultData.setProfitLoss(
-                calculateProfitOrLoss(shipment.getIncome(), resultData.getCost()));
-        return iShipmentMapperDomain.mapShipmentToShipmentResponseDomain(shipmentService.save(resultData));
+    public ShipmentResponseDomain saveProfitOrLoss(ShipmentRequestDomain shipmentRequestDomain) throws Exception {
+        try {
+            Shipment shipment = iShipmentMapperDomain.mapShipmentRequestDomainToShipment(shipmentRequestDomain);
+            shipment.setCost(sumTotalCost(shipmentRequestDomain.getCosts()));
+            Shipment resultData = shipmentService.save(shipment);
+            resultData.setProfitLoss(
+                    calculateProfitOrLoss(shipment.getIncome(), resultData.getCost()));
+            return iShipmentMapperDomain.mapShipmentToShipmentResponseDomain(shipmentService.save(resultData));
+        }catch (Exception ex){
+            throw new Exception("Error calculating the profit and loss of the shipment", ex.getCause());
+        }
     }
 }

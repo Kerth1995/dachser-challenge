@@ -30,7 +30,7 @@ public class ShipmentController {
     private final IShipmentMapperDTO shipmentMapperDTO = IShipmentMapperDTO.MAPPER;
 
     @PostMapping("/")
-    ResponseEntity<?> save(@RequestBody RequestShipmentDTO data){
+    ResponseEntity<?> save(@RequestBody RequestShipmentDTO data) throws Exception {
 
         return new ResponseEntity<>(
                 shipmentMapperDTO.mapShipmentResponseDomainToShipmentResponseDTO(

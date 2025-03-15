@@ -82,7 +82,8 @@ export class ShipmentComponent {
         alert("Shipment already calculated. Its ID is: " + response.id);
       }
       ,error: (error) => {
-        alert("There is an error in the request: ");
+        debugger;
+        alert("There is an error in the request: " + error.error.error + " :::: message: " + error.error.message);
       },
       complete: () => {
 

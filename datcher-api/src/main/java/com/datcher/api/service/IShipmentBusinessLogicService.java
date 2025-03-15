@@ -11,5 +11,5 @@ public interface IShipmentBusinessLogicService {
     Double calculateProfitOrLoss(Double income, Double totalCost);
     Double sumTotalCost(List<Double> costs);
 
-    ShipmentResponseDomain saveProfitOrLoss(ShipmentRequestDomain shipmentRequestDomain);
+    ShipmentResponseDomain saveProfitOrLoss(ShipmentRequestDomain shipmentRequestDomain) throws Exception;
 }
