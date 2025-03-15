@@ -5,20 +5,18 @@ import com.datcher.api.rest.RequestDTO.RequestShipmentDTO;
 import com.datcher.api.rest.mappers.IShipmentMapperDTO;
 import com.datcher.api.service.IShipmentBusinessLogicService;
 import com.datcher.api.service.IShipmentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/shipment")
 @CrossOrigin(origins = "http://localhost:4200")
+@Slf4j
 public class ShipmentController {
 
     @Autowired
@@ -31,7 +29,8 @@ public class ShipmentController {
 
     @PostMapping("/")
     ResponseEntity<?> save(@RequestBody RequestShipmentDTO data) throws Exception {
-
+        log.info("Ingresa al metodo save del controlador");
+        log.info("RequestBody {}", data.toString());
         return new ResponseEntity<>(
                 shipmentMapperDTO.mapShipmentResponseDomainToShipmentResponseDTO(
                         shipmentBusinessLogicService.saveProfitOrLoss(

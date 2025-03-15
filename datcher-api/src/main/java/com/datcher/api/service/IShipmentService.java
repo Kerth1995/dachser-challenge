@@ -10,7 +10,6 @@ public interface IShipmentService {
 
     List<Shipment> findAll();
     Page<Shipment> findAll(Pageable pageable);
-    Shipment findById(Long id);
 
     Shipment save(Shipment shipment);
 }
