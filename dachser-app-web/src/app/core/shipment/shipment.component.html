@@ -10,34 +10,37 @@
     </mat-card-header>
     
     <mat-card-content>
-        <div class="row g-3">
-            <div class="col-md-3 pt-4" >
-              <label for="inputEmail4" class="form-label">Income</label>
-              <input type="number" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-9 pt-4">
-                <mat-card>
-                    <mat-card-header>
-                        <mat-card-subtitle>Costs</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Cost</label>
-                                <input type="number" class="form-control" id="inputEmail4">
+        <form [formGroup]="shipmentForm">
+            <div class="row g-3">                
+                <div class="col-md-3 pt-4" >
+                    <label for="income" class="form-label">Income</label>
+                    <input type="number" class="form-control" id="income" formControlName="income">
+                </div>
+                <div class="col-md-9 pt-4">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-subtitle>Costs</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="cost" class="form-label">Cost</label>
+                                    <input type="number" class="form-control" id="cost" formControlName="cost">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="addionalCost" class="form-label">Additional cost</label>
+                                    <input type="number" class="form-control" id="addionalCost" formControlName="addionalCost">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Additional cost</label>
-                                <input type="number" class="form-control" id="inputEmail4">
-                            </div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
             </div>
-        </div>
+        </form>
+
         <div class="row g-3">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-4 pb-4">
-                <button mat-flat-button color="primary">Calculate</button>
+                <button mat-flat-button color="primary" (click)="calculateProfitLoss()">Calculate</button>
             </div>
         </div>
     </mat-card-content>

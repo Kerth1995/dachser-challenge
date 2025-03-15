@@ -12,6 +12,11 @@ export class ShipmentService {
 
   getAll(): Observable<any[]> {
     return this.http.get<any[]>(this.mainPathRead);
-    //return of(CUSTOMERS);
+    //return of();
+  }
+
+  caulateProfitLoss(shipment: any): Observable<any> {
+    return this.http.post<any>(this.mainPathRead, shipment);
+    //return of();
   }
 }

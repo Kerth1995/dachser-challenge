@@ -14,6 +14,7 @@ import { BodyComponent } from './common/body/body.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { ShipmentComponent } from './core/shipment/shipment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     MatCardModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
