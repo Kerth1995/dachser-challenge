@@ -1,9 +1,8 @@
 package com.datcher.api.service.mappers;
 
 import com.datcher.api.entities.Shipment;
-import com.datcher.api.rest.RequestDTO.RequestShipmentDTO;
-import com.datcher.api.rest.mappers.IShipmentMapperDTO;
-import com.datcher.api.service.domainModels.ShipmentDomain;
+import com.datcher.api.service.domainModels.ShipmentRequestDomain;
+import com.datcher.api.service.domainModels.ShipmentResponseDomain;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -15,5 +14,11 @@ public interface IShipmentMapperDomain {
     IShipmentMapperDomain MAPPER = Mappers.getMapper(IShipmentMapperDomain.class);
 
     @Mapping(source = "income", target = "income")
-    public Shipment mapShipmentDomainToShipment(ShipmentDomain shipmentDomain);
+    public Shipment mapShipmentRequestDomainToShipment(ShipmentRequestDomain shipmentRequestDomain);
+
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "income", target = "income")
+    @Mapping(source = "cost", target = "cost")
+    @Mapping(source = "profitLoss", target = "profitLoss")
+    public ShipmentResponseDomain mapShipmentToShipmentResponseDomain(Shipment shipment);
 }

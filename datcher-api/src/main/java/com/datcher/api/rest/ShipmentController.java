@@ -22,14 +22,20 @@ import java.util.Map;
 public class ShipmentController {
 
     @Autowired
+    IShipmentBusinessLogicService shipmentBusinessLogicService;
+
+    @Autowired
     IShipmentService shipmentService;
 
     private final IShipmentMapperDTO shipmentMapperDTO = IShipmentMapperDTO.MAPPER;
 
     @PostMapping("/")
     ResponseEntity<?> save(@RequestBody RequestShipmentDTO data){
+
         return new ResponseEntity<>(
-                shipmentService.updateProfitOrLoss(shipmentMapperDTO.mapRequestShipmentDTOToShipmentDomain(data)),
+                shipmentMapperDTO.mapShipmentResponseDomainToShipmentResponseDTO(
+                        shipmentBusinessLogicService.saveProfitOrLoss(
+                                shipmentMapperDTO.mapRequestShipmentDTOToShipmentDomain(data))),
                 HttpStatus.CREATED);
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ShipmentDomain {
+public class ShipmentRequestDomain {
     private Double income;
     private List<Double> costs;
 }
