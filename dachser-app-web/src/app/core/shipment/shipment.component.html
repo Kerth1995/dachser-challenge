@@ -1,0 +1,78 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Shipment Id: 12345</mat-card-title>
+      </mat-card-header>
+</mat-card>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Income and Outcome</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <div class="row g-3">
+            <div class="col-md-3 pt-4" >
+              <label for="inputEmail4" class="form-label">Income</label>
+              <input type="number" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-9 pt-4">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-subtitle>Costs</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Cost</label>
+                                <input type="number" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Additional cost</label>
+                                <input type="number" class="form-control" id="inputEmail4">
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-4 pb-4">
+                <button mat-flat-button color="primary">Calculate</button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+    <mat-card-content>
+        <mat-table [dataSource]="dataSourceShipment" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="income">
+              <mat-header-cell *matHeaderCellDef> Income </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.income}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="cost">
+              <mat-header-cell *matHeaderCellDef> Total Costs </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.cost}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="profitLoss">
+              <mat-header-cell *matHeaderCellDef> Profit or Loss </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.profitLoss}} </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumnsShipment sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsShipment;"></mat-row>
+          </mat-table>
+    </mat-card-content>
+</mat-card>
+  

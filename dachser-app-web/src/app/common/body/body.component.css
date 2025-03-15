@@ -1,0 +1,32 @@
+.example-container {
+    margin: 10px;
+    height: auto;
+    /**
+    width: auto;
+    border: 1px solid #555;
+    height: auto;
+    **/
+}
+
+.mat-drawer-side{
+    border-right: solid 0px transparent;
+}
+  
+.mat-drawer-container {
+    background-color: transparent;
+}
+
+.left-card{
+    box-shadow:none; 
+    width: 200px   
+    /*width: 200px;*/
+}
+
+/*TABLE*/
+table {
+    width: 100%;
+}
+
+.mat-form-field{
+    width: 100%;
+}

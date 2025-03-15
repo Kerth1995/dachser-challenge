@@ -1,0 +1,4 @@
+INSERT INTO shipment (id, register_state, create_user, update_user, create_date, update_date, income, cost, profit_loss) VALUES (1, 1, 'admin', null, '2025-03-15 01:09:28-04:42:46', null, 2, 2, 0.0);
+INSERT INTO shipment (id, register_state, create_user, update_user, create_date, update_date, income, cost, profit_loss) VALUES (2, 1, 'admin', null, '2025-03-15 01:09:28-04:42:46', null, 2, 4, -2.0);
+INSERT INTO shipment (id, register_state, create_user, update_user, create_date, update_date, income, cost, profit_loss) VALUES (3, 1, 'admin', null, '2025-03-15 01:09:28-04:42:46', null, 4, 2, 2.0);
+INSERT INTO shipment (id, register_state, create_user, update_user, create_date, update_date, income, cost, profit_loss) VALUES (4, 1, 'admin', null, '2025-03-15 01:09:28-04:42:46', null, 6, 2, 4.0);
